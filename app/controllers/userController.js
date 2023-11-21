@@ -1,9 +1,9 @@
 const User = require('../models/user');
 
-// Example controller functions
+
 const getAllUsers = async (req, res) => {
     try {
-        const users = await User.findAll(); // Use findAll() instead of find()
+        const users = await User.findAll(); 
         res.json(users);
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -43,7 +43,7 @@ const updateUser = async (req, res) => {
 };
 
 
-// userController.js
+
 
 const deleteUser = async (req, res) => {
     const { id } = req.params;
@@ -82,7 +82,7 @@ const getUserById = async (req, res) => {
 
 module.exports = {
     getAllUsers,
-    getUserById, // Add this line
+    getUserById,
     createUser,
     updateUser,
     deleteUser,

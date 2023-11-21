@@ -1,8 +1,6 @@
-// controllers/cardController.js
-
 const Card = require('../models/card');
 
-// Example controller functions
+
 const getAllCards = async (req, res) => {
     try {
         const cards = await Card.findAll();

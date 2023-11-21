@@ -2,14 +2,15 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const sequelize = require('./database'); // Import sequelize instance
+const sequelize = require('./database'); 
 const userRoutes = require('./routes/userRoutes');
 const cardRoutes = require('./routes/cardRoutes');
-
+const roomRoutes = require('./routes/roomRoutes');
+const deckRoutes = require('./routes/deckRoutes');
 
 app.use(express.json());
 
-// Sync the models with the database
+
 sequelize.sync().then(() => {
     console.log('Database synced');
 }).catch((err) => {
@@ -19,6 +20,8 @@ sequelize.sync().then(() => {
 // Routes
 app.use('/users', userRoutes);
 app.use('/cards', cardRoutes);
+app.use('/rooms', roomRoutes);
+app.use('/decks', deckRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
