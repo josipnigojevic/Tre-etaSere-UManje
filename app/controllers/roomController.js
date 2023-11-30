@@ -1,86 +1,56 @@
-const Room = require('../models/room');
+const fs = require('fs');
+const path = require('path');
+const { Player } = require('./playerController');
 
+const roomPath = path.join(__dirname, '../models/room.json');
 
-const getAllRooms = async (req, res) => {
-    try {
-        const rooms = await Room.findAll();
-        res.json(rooms);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
+class Room {
+  constructor(id, users) {
+    this.id = id;
+    this.users = users || [];
+  }
+}
+
+const getAllRooms = () => {
+  const rooms = JSON.parse(fs.readFileSync(roomPath, 'utf8'));
+  return rooms;
 };
 
-const getRoomById = async (req, res) => {
-    const { id } = req.params;
-
-    try {
-        const room = await Room.findByPk(id);
-
-        if (!room) {
-            return res.status(404).json({ message: 'Room not found' });
-        }
-
-        res.json(room);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
+const getRoomById = (roomId) => {
+  const rooms = getAllRooms();
+  return rooms.find((room) => room.id === roomId);
 };
 
-const createRoom = async (req, res) => {
-    const { name, capacity, players } = req.body;
-
-    try {
-        const newRoom = await Room.create({ name, capacity, players });
-        res.status(201).json(newRoom);
-    } catch (error) {
-        res.status(400).json({ message: error.message });
-    }
+const createRoom = (newRoom) => {
+  const rooms = getAllRooms();
+  const roomInstance = new Room(newRoom.id, newRoom.users);
+  rooms.push(roomInstance);
+  fs.writeFileSync(roomPath, JSON.stringify(rooms, null, 2));
+  return roomInstance;
 };
 
-const updateRoom = async (req, res) => {
-    const { id } = req.params;
-    const { name, capacity, players } = req.body;
-
-    try {
-        const room = await Room.findByPk(id);
-
-        if (!room) {
-            return res.status(404).json({ message: 'Room not found' });
-        }
-
-        room.name = name;
-        room.capacity = capacity;
-        room.players = players; 
-        await room.save();
-
-        res.json(room);
-    } catch (error) {
-        res.status(400).json({ message: error.message });
-    }
+const updateRoom = (roomId, updatedRoom) => {
+  const rooms = getAllRooms();
+  const index = rooms.findIndex((room) => room.id === roomId);
+  if (index !== -1) {
+    rooms[index] = { ...rooms[index], ...updatedRoom };
+    fs.writeFileSync(roomPath, JSON.stringify(rooms, null, 2));
+    return rooms[index];
+  }
+  return null;
 };
 
-const deleteRoom = async (req, res) => {
-    const { id } = req.params;
-
-    try {
-        const room = await Room.findByPk(id);
-
-        if (!room) {
-            return res.status(404).json({ message: 'Room not found' });
-        }
-
-        await room.destroy();
-
-        res.json({ message: 'Room deleted successfully' });
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
+const deleteRoom = (roomId) => {
+  const rooms = getAllRooms();
+  const updatedRooms = rooms.filter((room) => room.id !== roomId);
+  fs.writeFileSync(roomPath, JSON.stringify(updatedRooms, null, 2));
 };
 
 module.exports = {
-    getAllRooms,
-    getRoomById,
-    createRoom,
-    updateRoom,
-    deleteRoom,
+  Room,
+  getAllRooms,
+  getRoomById,
+  createRoom,
+  updateRoom,
+  deleteRoom,
 };

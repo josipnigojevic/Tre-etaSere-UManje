@@ -1,0 +1,594 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "startingHand": [
+      {
+        "id": 10,
+        "name": "test",
+        "type": "Kupe",
+        "number": 13,
+        "description": "test"
+      },
+      {
+        "id": 33,
+        "name": "test",
+        "type": "Bastoni",
+        "number": 3,
+        "description": "test"
+      },
+      {
+        "id": 35,
+        "name": "test",
+        "type": "Bastoni",
+        "number": 5,
+        "description": "test"
+      },
+      {
+        "id": 6,
+        "name": "test",
+        "type": "Kupe",
+        "number": 6,
+        "description": "test"
+      },
+      {
+        "id": 1,
+        "name": "test",
+        "type": "Kupe",
+        "number": 1,
+        "description": "test"
+      },
+      {
+        "id": 18,
+        "name": "test",
+        "type": "Spade",
+        "number": 11,
+        "description": "test"
+      },
+      {
+        "id": 8,
+        "name": "test",
+        "type": "Kupe",
+        "number": 11,
+        "description": "test"
+      },
+      {
+        "id": 2,
+        "name": "test",
+        "type": "Kupe",
+        "number": 2,
+        "description": "test"
+      },
+      {
+        "id": 36,
+        "name": "test",
+        "type": "Bastoni",
+        "number": 6,
+        "description": "test"
+      },
+      {
+        "id": 28,
+        "name": "test",
+        "type": "Dinari",
+        "number": 11,
+        "description": "test"
+      }
+    ],
+    "currentHand": [
+      {
+        "id": 10,
+        "name": "test",
+        "type": "Kupe",
+        "number": 13,
+        "description": "test"
+      },
+      {
+        "id": 33,
+        "name": "test",
+        "type": "Bastoni",
+        "number": 3,
+        "description": "test"
+      },
+      {
+        "id": 35,
+        "name": "test",
+        "type": "Bastoni",
+        "number": 5,
+        "description": "test"
+      },
+      {
+        "id": 6,
+        "name": "test",
+        "type": "Kupe",
+        "number": 6,
+        "description": "test"
+      },
+      {
+        "id": 1,
+        "name": "test",
+        "type": "Kupe",
+        "number": 1,
+        "description": "test"
+      },
+      {
+        "id": 18,
+        "name": "test",
+        "type": "Spade",
+        "number": 11,
+        "description": "test"
+      },
+      {
+        "id": 8,
+        "name": "test",
+        "type": "Kupe",
+        "number": 11,
+        "description": "test"
+      },
+      {
+        "id": 2,
+        "name": "test",
+        "type": "Kupe",
+        "number": 2,
+        "description": "test"
+      },
+      {
+        "id": 36,
+        "name": "test",
+        "type": "Bastoni",
+        "number": 6,
+        "description": "test"
+      },
+      {
+        "id": 28,
+        "name": "test",
+        "type": "Dinari",
+        "number": 11,
+        "description": "test"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Joe Doe",
+    "startingHand": [
+      {
+        "id": 22,
+        "name": "test",
+        "type": "Dinari",
+        "number": 2,
+        "description": "test"
+      },
+      {
+        "id": 31,
+        "name": "test",
+        "type": "Bastoni",
+        "number": 1,
+        "description": "test"
+      },
+      {
+        "id": 3,
+        "name": "test",
+        "type": "Kupe",
+        "number": 3,
+        "description": "test"
+      },
+      {
+        "id": 14,
+        "name": "test",
+        "type": "Spade",
+        "number": 4,
+        "description": "test"
+      },
+      {
+        "id": 17,
+        "name": "test",
+        "type": "Spade",
+        "number": 7,
+        "description": "test"
+      },
+      {
+        "id": 25,
+        "name": "test",
+        "type": "Dinari",
+        "number": 5,
+        "description": "test"
+      },
+      {
+        "id": 15,
+        "name": "test",
+        "type": "Spade",
+        "number": 5,
+        "description": "test"
+      },
+      {
+        "id": 20,
+        "name": "test",
+        "type": "Spade",
+        "number": 13,
+        "description": "test"
+      },
+      {
+        "id": 37,
+        "name": "test",
+        "type": "Bastoni",
+        "number": 7,
+        "description": "test"
+      },
+      {
+        "id": 9,
+        "name": "test",
+        "type": "Kupe",
+        "number": 12,
+        "description": "test"
+      }
+    ],
+    "currentHand": [
+      {
+        "id": 22,
+        "name": "test",
+        "type": "Dinari",
+        "number": 2,
+        "description": "test"
+      },
+      {
+        "id": 31,
+        "name": "test",
+        "type": "Bastoni",
+        "number": 1,
+        "description": "test"
+      },
+      {
+        "id": 3,
+        "name": "test",
+        "type": "Kupe",
+        "number": 3,
+        "description": "test"
+      },
+      {
+        "id": 14,
+        "name": "test",
+        "type": "Spade",
+        "number": 4,
+        "description": "test"
+      },
+      {
+        "id": 17,
+        "name": "test",
+        "type": "Spade",
+        "number": 7,
+        "description": "test"
+      },
+      {
+        "id": 25,
+        "name": "test",
+        "type": "Dinari",
+        "number": 5,
+        "description": "test"
+      },
+      {
+        "id": 15,
+        "name": "test",
+        "type": "Spade",
+        "number": 5,
+        "description": "test"
+      },
+      {
+        "id": 20,
+        "name": "test",
+        "type": "Spade",
+        "number": 13,
+        "description": "test"
+      },
+      {
+        "id": 37,
+        "name": "test",
+        "type": "Bastoni",
+        "number": 7,
+        "description": "test"
+      },
+      {
+        "id": 9,
+        "name": "test",
+        "type": "Kupe",
+        "number": 12,
+        "description": "test"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Jo Doe",
+    "startingHand": [
+      {
+        "id": 12,
+        "name": "test",
+        "type": "Spade",
+        "number": 2,
+        "description": "test"
+      },
+      {
+        "id": 21,
+        "name": "test",
+        "type": "Dinari",
+        "number": 1,
+        "description": "test"
+      },
+      {
+        "id": 27,
+        "name": "test",
+        "type": "Dinari",
+        "number": 7,
+        "description": "test"
+      },
+      {
+        "id": 4,
+        "name": "test",
+        "type": "Kupe",
+        "number": 4,
+        "description": "test"
+      },
+      {
+        "id": 26,
+        "name": "test",
+        "type": "Dinari",
+        "number": 6,
+        "description": "test"
+      },
+      {
+        "id": 16,
+        "name": "test",
+        "type": "Spade",
+        "number": 6,
+        "description": "test"
+      },
+      {
+        "id": 40,
+        "name": "test",
+        "type": "Bastoni",
+        "number": 13,
+        "description": "test"
+      },
+      {
+        "id": 39,
+        "name": "test",
+        "type": "Bastoni",
+        "number": 12,
+        "description": "test"
+      },
+      {
+        "id": 38,
+        "name": "test",
+        "type": "Bastoni",
+        "number": 11,
+        "description": "test"
+      },
+      {
+        "id": 29,
+        "name": "test",
+        "type": "Dinari",
+        "number": 12,
+        "description": "test"
+      }
+    ],
+    "currentHand": [
+      {
+        "id": 12,
+        "name": "test",
+        "type": "Spade",
+        "number": 2,
+        "description": "test"
+      },
+      {
+        "id": 21,
+        "name": "test",
+        "type": "Dinari",
+        "number": 1,
+        "description": "test"
+      },
+      {
+        "id": 27,
+        "name": "test",
+        "type": "Dinari",
+        "number": 7,
+        "description": "test"
+      },
+      {
+        "id": 4,
+        "name": "test",
+        "type": "Kupe",
+        "number": 4,
+        "description": "test"
+      },
+      {
+        "id": 26,
+        "name": "test",
+        "type": "Dinari",
+        "number": 6,
+        "description": "test"
+      },
+      {
+        "id": 16,
+        "name": "test",
+        "type": "Spade",
+        "number": 6,
+        "description": "test"
+      },
+      {
+        "id": 40,
+        "name": "test",
+        "type": "Bastoni",
+        "number": 13,
+        "description": "test"
+      },
+      {
+        "id": 39,
+        "name": "test",
+        "type": "Bastoni",
+        "number": 12,
+        "description": "test"
+      },
+      {
+        "id": 38,
+        "name": "test",
+        "type": "Bastoni",
+        "number": 11,
+        "description": "test"
+      },
+      {
+        "id": 29,
+        "name": "test",
+        "type": "Dinari",
+        "number": 12,
+        "description": "test"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Jane Doe",
+    "startingHand": [
+      {
+        "id": 7,
+        "name": "test",
+        "type": "Kupe",
+        "number": 7,
+        "description": "test"
+      },
+      {
+        "id": 19,
+        "name": "test",
+        "type": "Spade",
+        "number": 12,
+        "description": "test"
+      },
+      {
+        "id": 13,
+        "name": "test",
+        "type": "Spade",
+        "number": 3,
+        "description": "test"
+      },
+      {
+        "id": 5,
+        "name": "test",
+        "type": "Kupe",
+        "number": 5,
+        "description": "test"
+      },
+      {
+        "id": 11,
+        "name": "test",
+        "type": "Spade",
+        "number": 1,
+        "description": "test"
+      },
+      {
+        "id": 23,
+        "name": "test",
+        "type": "Dinari",
+        "number": 3,
+        "description": "test"
+      },
+      {
+        "id": 24,
+        "name": "test",
+        "type": "Dinari",
+        "number": 4,
+        "description": "test"
+      },
+      {
+        "id": 30,
+        "name": "test",
+        "type": "Dinari",
+        "number": 13,
+        "description": "test"
+      },
+      {
+        "id": 32,
+        "name": "test",
+        "type": "Bastoni",
+        "number": 2,
+        "description": "test"
+      },
+      {
+        "id": 34,
+        "name": "test",
+        "type": "Bastoni",
+        "number": 4,
+        "description": "test"
+      }
+    ],
+    "currentHand": [
+      {
+        "id": 7,
+        "name": "test",
+        "type": "Kupe",
+        "number": 7,
+        "description": "test"
+      },
+      {
+        "id": 19,
+        "name": "test",
+        "type": "Spade",
+        "number": 12,
+        "description": "test"
+      },
+      {
+        "id": 13,
+        "name": "test",
+        "type": "Spade",
+        "number": 3,
+        "description": "test"
+      },
+      {
+        "id": 5,
+        "name": "test",
+        "type": "Kupe",
+        "number": 5,
+        "description": "test"
+      },
+      {
+        "id": 11,
+        "name": "test",
+        "type": "Spade",
+        "number": 1,
+        "description": "test"
+      },
+      {
+        "id": 23,
+        "name": "test",
+        "type": "Dinari",
+        "number": 3,
+        "description": "test"
+      },
+      {
+        "id": 24,
+        "name": "test",
+        "type": "Dinari",
+        "number": 4,
+        "description": "test"
+      },
+      {
+        "id": 30,
+        "name": "test",
+        "type": "Dinari",
+        "number": 13,
+        "description": "test"
+      },
+      {
+        "id": 32,
+        "name": "test",
+        "type": "Bastoni",
+        "number": 2,
+        "description": "test"
+      },
+      {
+        "id": 34,
+        "name": "test",
+        "type": "Bastoni",
+        "number": 4,
+        "description": "test"
+      }
+    ]
+  }
+]

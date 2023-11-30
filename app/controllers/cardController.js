@@ -1,86 +1,58 @@
-const Card = require('../models/card');
+const fs = require('fs');
+const path = require('path');
 
+const cardPath = path.join(__dirname, '../models/card.json');
 
-const getAllCards = async (req, res) => {
-    try {
-        const cards = await Card.findAll();
-        res.json(cards);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
+class Card {
+  constructor(id, name, description, type, number) {
+    this.id = id;
+    this.name = name;
+    this.type = type;
+    this.number = number;
+    this.description = description;
+  }
+}
+
+const getAllCards = () => {
+  const cards = JSON.parse(fs.readFileSync(cardPath, 'utf8'));
+  return cards;
 };
 
-const getCardById = async (req, res) => {
-    const { id } = req.params;
-
-    try {
-        const card = await Card.findByPk(id);
-
-        if (!card) {
-            return res.status(404).json({ message: 'Card not found' });
-        }
-
-        res.json(card);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
+const getCardById = (cardId) => {
+  const cards = getAllCards();
+  return cards.find((card) => card.id === cardId);
 };
 
-const createCard = async (req, res) => {
-    const { title, description, category } = req.body;
-
-    try {
-        const newCard = await Card.create({ title, description, category });
-        res.status(201).json(newCard);
-    } catch (error) {
-        res.status(400).json({ message: error.message });
-    }
+const createCard = (newCard) => {
+  const cards = getAllCards();
+  const cardInstance = new Card(newCard.id, newCard.name, newCard.type, newCard.number, newCard.description);
+  cards.push(cardInstance);
+  fs.writeFileSync(cardPath, JSON.stringify(cards, null, 2));
+  return cardInstance;
 };
 
-const updateCard = async (req, res) => {
-    const { id } = req.params;
-    const { title, description, category } = req.body;
-
-    try {
-        const card = await Card.findByPk(id);
-
-        if (!card) {
-            return res.status(404).json({ message: 'Card not found' });
-        }
-
-        card.title = title;
-        card.description = description;
-        card.category = category;
-        await card.save();
-
-        res.json(card);
-    } catch (error) {
-        res.status(400).json({ message: error.message });
-    }
+const updateCard = (cardId, updatedCard) => {
+  const cards = getAllCards();
+  const index = cards.findIndex((card) => card.id === cardId);
+  if (index !== -1) {
+    cards[index] = { ...cards[index], ...updatedCard };
+    fs.writeFileSync(cardPath, JSON.stringify(cards, null, 2));
+    return cards[index];
+  }
+  return null;
 };
 
-const deleteCard = async (req, res) => {
-    const { id } = req.params;
-
-    try {
-        const card = await Card.findByPk(id);
-
-        if (!card) {
-            return res.status(404).json({ message: 'Card not found' });
-        }
-
-        await card.destroy();
-
-        res.json({ message: 'Card deleted successfully' });
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
+const deleteCard = (cardId) => {
+  const cards = getAllCards();
+  const updatedCards = cards.filter((card) => card.id !== cardId);
+  fs.writeFileSync(cardPath, JSON.stringify(updatedCards, null, 2));
 };
 
 module.exports = {
-    getAllCards,
-    getCardById,
-    createCard,
-    updateCard,
-    deleteCard,
+  Card,
+  getAllCards,
+  getCardById,
+  createCard,
+  updateCard,
+  deleteCard,
 };

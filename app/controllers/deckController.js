@@ -1,70 +1,56 @@
-const Deck = require('../models/deck');
-const Card = require('../models/card'); 
+const fs = require('fs');
+const path = require('path');
+const { Card } = require('./cardController');
 
-// Fisher-Yates 
-const shuffleArray = (array) => {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
+const deckPath = path.join(__dirname, '../models/deck.json');
+
+class Deck {
+  constructor(id, cards) {
+    this.id = id;
+    this.cards = cards || [];
+  }
+}
+
+const getAllDecks = () => {
+  const decks = JSON.parse(fs.readFileSync(deckPath, 'utf8'));
+  return decks;
 };
 
-
-const createDeck = async (req, res) => {
-    try {
- 
-        const cardIds = (await Card.findAll({ limit: 40 })).map((card) => card.id);
-
-      
-        const shuffledCardIds = shuffleArray(cardIds);
-
-
-        const deck = await Deck.create({ cardIds: shuffledCardIds });
-
-        res.status(201).json(deck);
-    } catch (error) {
-        res.status(400).json({ message: error.message });
-    }
+const getDeckById = (deckId) => {
+  const decks = getAllDecks();
+  return decks.find((deck) => deck.id === deckId);
 };
 
-const getDeckById = async (req, res) => {
-    const { id } = req.params;
-
-    try {
-
-        const deck = await Deck.findByPk(id);
-
-        if (!deck) {
-            return res.status(404).json({ message: 'Deck not found' });
-        }
-
-        res.json(deck);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
+const createDeck = (newDeck) => {
+  const decks = getAllDecks();
+  const deckInstance = new Deck(newDeck.id, newDeck.cards);
+  decks.push(deckInstance);
+  fs.writeFileSync(deckPath, JSON.stringify(decks, null, 2));
+  return deckInstance;
 };
 
-const deleteDeck = async (req, res) => {
-    const { id } = req.params;
+const updateDeck = (deckId, updatedDeck) => {
+  const decks = getAllDecks();
+  const index = decks.findIndex((deck) => deck.id === deckId);
+  if (index !== -1) {
+    decks[index] = { ...decks[index], ...updatedDeck };
+    fs.writeFileSync(deckPath, JSON.stringify(decks, null, 2));
+    return decks[index];
+  }
+  return null;
+};
 
-    try {
-
-        const deck = await Deck.findByPk(id);
-        if (!deck) {
-            return res.status(404).json({ message: 'Deck not found' });
-        }
-
-        await deck.destroy();
-
-        res.json({ message: 'Deck deleted successfully' });
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
+const deleteDeck = (deckId) => {
+  const decks = getAllDecks();
+  const updatedDecks = decks.filter((deck) => deck.id !== deckId);
+  fs.writeFileSync(deckPath, JSON.stringify(updatedDecks, null, 2));
 };
 
 module.exports = {
-    createDeck,
-    getDeckById,
-    deleteDeck,
+  Deck,
+  getAllDecks,
+  getDeckById,
+  createDeck,
+  updateDeck,
+  deleteDeck,
 };
